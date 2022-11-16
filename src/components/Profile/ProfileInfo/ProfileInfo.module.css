@@ -1,0 +1,21 @@
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionBlock {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.cover img {
+    height: 200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.avatar {
+    height: 100px;
+    border-radius: 50%;
+}
