@@ -20,17 +20,12 @@ const Dialogs = (props) => {
     let state = props.dialogsPage;
     let dialogElements = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>);
     let messagesElements = state.messages.map(m => <Message message={m.text} key={m.id}/>);
-    let newMessage = React.createRef();
 
     let onAddMessage = (values) => {
         props.addMessage(values.newMessageText);
     }
 
-/*    let addNewMessage = (values) => {
-        alert(values.newPostText)
-    };*/
-
-    if (props.isAuth == false) return <Navigate to={"/login"}/>;
+    if (props.isAuth === false) return <Navigate to={"/login"}/>;
 
     return (
         <div className={s.dialogs}>

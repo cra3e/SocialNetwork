@@ -5,11 +5,9 @@ import {
     requestUsers,
     setCurrentPage,
     toggleFollowingProgress,
-    unfollowSuccess, followSuccess
-} from "../../Redux/usersReducer";
-import * as axios from 'axios';
+    unfollow, follow
+} from "../../Redux/usersReducer.ts";
 import Preloader from "../common/preloader/preloader";
-import {UsersAPI} from "../../API/Api";
 import {Navigate} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -43,8 +41,8 @@ class UsersContainer extends React.Component {
                        currentPage={this.props.currentPage}
                        onPageChanged={this.onPageChanged}
                        users={this.props.users}
-                       unfollow={this.props.unfollowSuccess}
-                       follow={this.props.followSuccess}
+                       unfollow={this.props.unfollow}
+                       follow={this.props.follow}
                        toggleFollowingProgress={this.props.toggleFollowingProgress}
                        followingInProgress={this.props.followingInProgress}/>}
         </>
@@ -108,6 +106,6 @@ let mapDispatchToProps = (dispatch) => {
 
 export default compose(
     withAuthRedirect,
-    connect(mapStateToProps,{followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, getUsers: requestUsers})
+    connect(mapStateToProps,{follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers: requestUsers})
 )(UsersContainer);
 

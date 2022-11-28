@@ -1,15 +1,16 @@
 .nav {
     grid-area: n;
-    background-color: slategrey;
+    background-color: #404050;
     padding-top: 20px;
     padding-left: 20px;
     padding-bottom: 20px;
-    border-radius: 5px;
+
 }
 
 .item {
     color: white;
     text-decoration: none;
+
 }
 
 .active {

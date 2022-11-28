@@ -1,7 +1,9 @@
 .app-wrapper {
+  font-family: Tahoma;
   margin: 0 auto;
   display: grid;
   width: 800px;
+  background-color: #404050;
 
   grid-template-areas:
     "h h"
@@ -9,13 +11,15 @@
 
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 5px;
 }
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: lightgray;
+  background-color: #ccccdd;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+}
+
+.app-wrapper button {
+  font-family: Tahoma;
 }

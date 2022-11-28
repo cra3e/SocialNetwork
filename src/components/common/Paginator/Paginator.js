@@ -4,6 +4,7 @@ import cn from "classnames";
 
 let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
 
+
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
     let pages = [];
@@ -11,29 +12,30 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portion
         pages.push(i);
     }
 
-    let portionCount = Math.ceil(pagesCount / portionSize);
+
+    let portionCount = Math.ceil(totalItemsCount / pageSize);
     let [portionNumber, setPortionNumber] = useState(1);
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
     return <div className={styles.paginator}>
+        { portionNumber === 1 &&
+            <button onClick={() => { setPortionNumber(portionNumber - 1) }} disabled  className={styles.button}>prev</button> }
         { portionNumber > 1 &&
-            <button onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button> }
+            <button onClick={() => { setPortionNumber(portionNumber - 1) }} className={styles.button}>prev</button> }
 
         {pages
             .filter(p => p >= leftPortionPageNumber && p<=rightPortionPageNumber)
             .map((p) => {
-                return <span className={ cn({
-                    [styles.selectedPage]: currentPage === p
-                }, styles.pageNumber) }
+                return <button className={ cn({[styles.selectedPageButton]: currentPage === p}, styles.pageButton) }
                              key={p}
                              onClick={(e) => {
                                  onPageChanged(p);
-                             }}>{p}</span>
+                             }}>{p}</button>
             })}
         { portionCount > portionNumber &&
-            <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button> }
+            <button onClick={() => { setPortionNumber(portionNumber + 1) }}  className={styles.button}>next</button> }
 
 
     </div>
