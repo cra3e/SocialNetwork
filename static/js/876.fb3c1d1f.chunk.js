@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkCR3_SocialNetwork=self.webpackChunkCR3_SocialNetwork||[]).push([[876],{9876:function(e,c,n){n.r(c),n.d(c,{default:function(){return t}});n(2791);var u={},r=n(184),t=function(){return(0,r.jsx)("dev",{className:u.all,children:"Music"})}}}]);
+//# sourceMappingURL=876.fb3c1d1f.chunk.js.map
